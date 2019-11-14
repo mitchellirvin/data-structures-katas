@@ -1,6 +1,6 @@
-package katas.datastructures.arraylist;
+package katas.datastructures.list;
 
-public interface ArrayList<T> {
+public interface List<T> {
 
     boolean add(T element);
     boolean remove(int index);

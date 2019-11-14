@@ -1,7 +1,7 @@
-package katas.datastructures.arraylist;
+package katas.datastructures.list;
 
 @SuppressWarnings("unchecked")
-public class SolvedArrayList<E> implements ArrayList<E> {
+public class SolvedArrayList<E> implements List<E> {
 
     private static final int INITIAL_ARRAY_LENGTH = 10;
 
