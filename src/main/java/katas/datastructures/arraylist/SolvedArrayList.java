@@ -46,5 +46,4 @@ public class SolvedArrayList<E> implements ArrayList<E> {
     public boolean isEmpty() {
         return false;
     }
-
 }
