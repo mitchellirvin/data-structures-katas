@@ -12,6 +12,7 @@ public class SolvedArrayList<E> implements ArrayList<E> {
         elements = new Object[INITIAL_ARRAY_LENGTH];
     }
 
+    // Does not account for upper limit of internal array length.
     public boolean add(E element) {
         ensureInternalArrayCapacity();
         elements[size] = element;
@@ -29,7 +30,6 @@ public class SolvedArrayList<E> implements ArrayList<E> {
 
     public boolean remove(int index) {
         if (outOfBoundsOfInternalArray(index)) {
-            System.out.println("Returning false");
             return false;
         }
         System.arraycopy(elements, index + 1, elements, index, size - 1 - index);
@@ -45,10 +45,19 @@ public class SolvedArrayList<E> implements ArrayList<E> {
         if (outOfBoundsOfInternalArray(index)) {
             throw new IndexOutOfBoundsException();
         }
+        return getElement(index);
+    }
+
+    private E getElement(int index) {
         return (E) elements[index];
     }
 
-    public boolean contains(E element) {
+    public boolean contains(E elementToFind) {
+        for (int i = 0; i < size; i++) {
+            if (getElement(i).equals(elementToFind)) {
+                return true;
+            }
+        }
         return false;
     }
 
