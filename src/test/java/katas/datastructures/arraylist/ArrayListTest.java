@@ -1,35 +1,38 @@
 package katas.datastructures.arraylist;
 
-import org.junit.Assert;
-import org.junit.Test;
 
-public class ArrayListTest {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class ArrayListTest {
 
     @Test
-    public void add() {
+    void add() {
         ArrayList<Integer> arrayList = new SolvedArrayList<>();
         for (int i = 0; i < 1000; i++) {
             arrayList.add(i);
-            Assert.assertEquals(Integer.valueOf(i), arrayList.get(i));
-            Assert.assertEquals(i + 1, arrayList.size());
+            Assertions.assertEquals(Integer.valueOf(i), arrayList.get(i));
+            Assertions.assertEquals(i + 1, arrayList.size());
         }
     }
 
     @Test
-    public void remove() {
+    void remove() {
         ArrayList<Integer> arrayList = new SolvedArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
             arrayList.add(i);
-            Assert.assertEquals(Integer.valueOf(i), arrayList.get(i));
-            Assert.assertEquals(i + 1, arrayList.size());
+            Assertions.assertEquals(Integer.valueOf(i), arrayList.get(i));
+            Assertions.assertEquals(i + 1, arrayList.size());
         }
 
-        for (int i = 999; i > 0; i--) {
-            arrayList.remove(i);
-            Assert.assertEquals(i, arrayList.size());
-        }
-
+        arrayList.remove(5);
+        arrayList.remove(342);
+        arrayList.remove(718);
+        Assertions.assertEquals(997, arrayList.size());
+        Assertions.assertEquals(Integer.valueOf(6), arrayList.get(5));
+        Assertions.assertEquals(Integer.valueOf(344), arrayList.get(342));
+        Assertions.assertEquals(Integer.valueOf(721), arrayList.get(718));
     }
 
 }
