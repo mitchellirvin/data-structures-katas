@@ -1,12 +1,13 @@
 package katas.datastructures.list;
 
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ListTest {
 
     @Test
+    @Order(1)
     void add() {
         List<Integer> list = new YourNameArrayList<>();
         for (int i = 0; i < 100; i++) {
@@ -18,6 +19,7 @@ class ListTest {
     }
 
     @Test
+    @Order(2)
     void remove() {
         List<Integer> list = new YourNameArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -36,6 +38,7 @@ class ListTest {
     }
 
     @Test
+    @Order(3)
     void contains() {
         List<Integer> list = new YourNameArrayList<>();
         list.add(2);
@@ -49,6 +52,7 @@ class ListTest {
     }
 
     @Test
+    @Order(4)
     void isEmpty() {
         List<Integer> list = new YourNameArrayList<>();
         Assertions.assertTrue(list.isEmpty());
