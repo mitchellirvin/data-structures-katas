@@ -1,7 +1,8 @@
-package katas.datastructures.list;
+package katas.datastructures.list.linkedlist;
 
-public class YourNameArrayList<T> implements List<T> {
+import katas.datastructures.list.List;
 
+public class SolvedLinkedList<T> implements List<T> {
     public boolean add(T element) {
         return false;
     }
@@ -25,5 +26,4 @@ public class YourNameArrayList<T> implements List<T> {
     public boolean isEmpty() {
         return false;
     }
-
 }

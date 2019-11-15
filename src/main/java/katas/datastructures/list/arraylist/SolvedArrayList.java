@@ -1,4 +1,6 @@
-package katas.datastructures.list;
+package katas.datastructures.list.arraylist;
+
+import katas.datastructures.list.List;
 
 @SuppressWarnings("unchecked")
 public class SolvedArrayList<E> implements List<E> {
