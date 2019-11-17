@@ -1,6 +1,5 @@
 # List
 
-
 ## What
 Lists are a very common abstract data structure, and provide the behavior you'd pretty much expect of a list of things. 
 Lists maintain order according to how an element is inserted, and they allow you to check what element exists at a given 
