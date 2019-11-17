@@ -3,7 +3,7 @@ package katas.datastructures.list.arraylist;
 import katas.datastructures.list.List;
 
 @SuppressWarnings("unchecked")
-public class SolvedArrayList<E> implements List<E> {
+public class SolvedArrayList<T> implements List<T> {
 
     private static final int INITIAL_ARRAY_LENGTH = 10;
 
@@ -15,7 +15,7 @@ public class SolvedArrayList<E> implements List<E> {
     }
 
     // Does not account for upper limit of internal array length.
-    public boolean add(E element) {
+    public boolean add(T element) {
         ensureInternalArrayCapacity();
         elements[size] = element;
         size++;
@@ -30,31 +30,31 @@ public class SolvedArrayList<E> implements List<E> {
         }
     }
 
-    public boolean remove(int index) {
-        if (outOfBoundsOfInternalArray(index)) {
+    public boolean remove(int indexToRemove) {
+        if (isOutOfBounds(indexToRemove)) {
             return false;
         }
-        System.arraycopy(elements, index + 1, elements, index, size - 1 - index);
+        System.arraycopy(elements, indexToRemove + 1, elements, indexToRemove, size - 1 - indexToRemove);
         size--;
         return true;
     }
 
-    private boolean outOfBoundsOfInternalArray(int index) {
+    private boolean isOutOfBounds(int index) {
         return index < 0 || index > size - 1;
     }
 
-    public E get(int index) {
-        if (outOfBoundsOfInternalArray(index)) {
+    public T get(int index) {
+        if (isOutOfBounds(index)) {
             throw new IndexOutOfBoundsException();
         }
         return getElement(index);
     }
 
-    private E getElement(int index) {
-        return (E) elements[index];
+    private T getElement(int index) {
+        return (T) elements[index];
     }
 
-    public boolean contains(E elementToFind) {
+    public boolean contains(T elementToFind) {
         for (int i = 0; i < size; i++) {
             if (getElement(i).equals(elementToFind)) {
                 return true;

@@ -3,6 +3,7 @@ package katas.datastructures.list.linkedlist;
 import katas.datastructures.list.List;
 
 public class YourLinkedList<T> implements List<T> {
+
     public boolean add(T element) {
         return false;
     }
@@ -26,4 +27,5 @@ public class YourLinkedList<T> implements List<T> {
     public boolean isEmpty() {
         return false;
     }
+
 }
