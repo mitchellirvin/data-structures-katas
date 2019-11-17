@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    // TODO: add jacoco and pitest
 }
 
 group 'katas.datastructures'

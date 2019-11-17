@@ -34,13 +34,13 @@ An array list uses an internal array to store its elements. The efficiency of it
 
 **Problem Statement** 
 
-Implement your own array based resizable list (generically typed), named YourNameArrayList. 
-YourNameArrayList will use an array to contain the underlying elements in YourNameArrayList.
+Implement your own array based resizable list (generically typed), named YourArrayList. 
+YourArrayList will use an array to contain the underlying elements in YourArrayList.
 
-Start by renaming `YourNameArrayList` to include your actual name. Mine would be `MitchArrayList`. 
+Start by renaming `YourArrayList` to include your actual name. Mine would be `MitchArrayList`. 
 Be sure to use the refactoring tool in your IDE, so that it is renamed everywhere.
-`YourNameArrayList` implements our own `List` interface. This interface defines the methods you'll need to 
-implement in order to successfully pass the test cases in `ArrayListTest`. Implement `YourNameArrayList`
+`YourArrayList` implements our own `List` interface. This interface defines the methods you'll need to 
+implement in order to successfully pass the test cases in `ArrayListTest`. Implement `YourArrayList`
 to pass each test in order.
 
 ### Linked List
@@ -52,10 +52,10 @@ A linked list uses linked nodes to store its elements. The efficiency of its ope
 
 **Problem Statement** 
 
-Implement your own linked-list based resizable list (generically typed), named YourNameLinkedList. 
-YourNameLinkedList will use linked nodes to contain the underlying elements.
+Implement your own linked-list based resizable list (generically typed), named YourLinkedList. 
+YourLinkedList will use linked nodes to contain the underlying elements.
 
-Start by renaming `YourNameLinkedList` to include your actual name. Mine would be `MitchLinkedList`. 
+Start by renaming `YourLinkedList` to include your actual name. Mine would be `MitchLinkedList`. 
 Be sure to use the refactoring tool in your IDE, so that it is renamed everywhere.
-`YourNameLinkedList` implements our own `List` interface. This interface defines the methods you'll need to 
+`YourLinkedList` implements our own `List` interface. This interface defines the methods you'll need to 
 implement in order to successfully pass the test cases in `ListTest`. Happy coding!

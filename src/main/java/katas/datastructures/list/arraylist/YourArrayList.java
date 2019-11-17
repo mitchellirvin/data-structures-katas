@@ -2,7 +2,7 @@ package katas.datastructures.list.arraylist;
 
 import katas.datastructures.list.List;
 
-public class YourNameArrayList<T> implements List<T> {
+public class YourArrayList<T> implements List<T> {
 
     public boolean add(T element) {
         return false;

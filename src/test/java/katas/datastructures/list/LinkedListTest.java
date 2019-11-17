@@ -1,7 +1,6 @@
-package katas.datastructures.list.linkedlist;
+package katas.datastructures.list;
 
-
-import katas.datastructures.list.List;
+import katas.datastructures.list.linkedlist.YourLinkedList;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -10,9 +9,9 @@ class LinkedListTest {
     @Test
     @Order(1)
     void add() {
-        List<Integer> list = new SolvedLinkedList<>();
+        List<Integer> list = new YourLinkedList<>();
         for (int i = 0; i < 100; i++) {
-            list.add(i);
+            Assertions.assertTrue(list.add(i));
 
             Assertions.assertEquals(Integer.valueOf(i), list.get(i));
             Assertions.assertEquals(i + 1, list.size());
@@ -22,7 +21,7 @@ class LinkedListTest {
     @Test
     @Order(2)
     void remove() {
-        List<Integer> list = new SolvedLinkedList<>();
+        List<Integer> list = new YourLinkedList<>();
         for (int i = 0; i < 10; i++) {
             list.add(i);
         }
@@ -42,7 +41,7 @@ class LinkedListTest {
     @Test
     @Order(3)
     void contains() {
-        List<Integer> list = new SolvedLinkedList<>();
+        List<Integer> list = new YourLinkedList<>();
         list.add(2);
         list.add(4);
         list.add(6);
@@ -56,7 +55,7 @@ class LinkedListTest {
     @Test
     @Order(4)
     void isEmpty() {
-        List<Integer> list = new SolvedLinkedList<>();
+        List<Integer> list = new YourLinkedList<>();
         Assertions.assertTrue(list.isEmpty());
 
         list.add(1);
