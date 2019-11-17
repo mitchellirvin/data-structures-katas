@@ -27,15 +27,16 @@ class LinkedListTest {
             list.add(i);
         }
 
-        list.remove(2);
-        list.remove(5);
-        list.remove(7);
+        Assertions.assertTrue(list.remove(2));
+        Assertions.assertTrue(list.remove(5));
+        Assertions.assertTrue(list.remove(7));
 
         Assertions.assertEquals(7, list.size());
         Assertions.assertEquals(Integer.valueOf(4), list.get(3));
         Assertions.assertEquals(Integer.valueOf(7), list.get(5));
         Assertions.assertEquals(Integer.valueOf(8), list.get(6));
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.get(7));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
     }
 
     @Test

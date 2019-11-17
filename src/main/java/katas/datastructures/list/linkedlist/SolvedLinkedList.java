@@ -12,9 +12,9 @@ public class SolvedLinkedList<T> implements List<T> {
     }
 
     public boolean add(T element) {
-        if (head == null) {
+        if (size == 0) {
             head = new SolvedNode<>(null, element);
-        } else if (tail == null) {
+        } else if (size == 1) {
             tail = new SolvedNode<>(null, element);
             head.next = tail;
         } else {
@@ -25,27 +25,53 @@ public class SolvedLinkedList<T> implements List<T> {
         return true;
     }
 
-    public boolean remove(int index) {
-        if (index < 0 || index > size - 1) {
+    public boolean remove(int indexToRemove) {
+        if (isOutOfBounds(indexToRemove)) {
             throw new IndexOutOfBoundsException();
         }
+        removeNodeAtIndex(indexToRemove);
+        size--;
+        return true;
+    }
 
-        return false;
+    private boolean isOutOfBounds(int indexToRemove) {
+        return indexToRemove < 0 || indexToRemove > size - 1;
+    }
+
+    private void removeNodeAtIndex(int indexToRemove) {
+        if (indexToRemove == 0) {
+            head = null;
+        } else {
+            SolvedNode<T> current = getNodeAtPosition(indexToRemove - 1);
+            current.next = current.next.next;
+        }
+    }
+
+    private SolvedNode<T> getNodeAtPosition(int index) {
+        SolvedNode<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
     }
 
     public T get(int index) {
-        if (index < 0 || index > size - 1) {
+        if (isOutOfBounds(index)) {
             throw new IndexOutOfBoundsException();
         }
 
-        SolvedNode<T> current = head;
-        for(int i = 0; i < index; i++) {
-            current = current.next;
-        }
+        SolvedNode<T> current = getNodeAtPosition(index);
         return current.value;
     }
 
     public boolean contains(T element) {
+        SolvedNode<T> current = head;
+        for (int i = 0; i < size; i++) {
+            if (current.value.equals(element)) {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 
@@ -54,7 +80,7 @@ public class SolvedLinkedList<T> implements List<T> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     private static class SolvedNode<T> {
