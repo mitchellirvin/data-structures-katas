@@ -44,4 +44,10 @@ public interface Deque<E> {
      */
     int size();
 
+    /**
+     * Returns true if the deque contains zero elements
+     * @return true if the deque is empty
+     */
+    boolean isEmpty();
+
 }

@@ -57,4 +57,4 @@ YourLinkedList will use linked nodes to contain the underlying elements.
 Start by renaming `YourLinkedList` to include your actual name. Mine would be `MitchLinkedList`. 
 Be sure to use the refactoring tool in your IDE, so that it is renamed everywhere.
 `YourLinkedList` implements our own `List` interface. This interface defines the methods you'll need to 
-implement in order to successfully pass the test cases in `ListTest`. Happy coding!
+implement in order to successfully pass the test cases in `LinkedListTest`. Happy coding!
