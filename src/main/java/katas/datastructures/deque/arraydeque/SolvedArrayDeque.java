@@ -27,13 +27,17 @@ public class SolvedArrayDeque<E> implements Deque<E> {
     }
 
     public void addFirst(E element) {
-        head = (head - 1) & (elements.length - 1);
+        head = wrappingDecrement(head);
         elements[head] = element;
         size++;
 
         if (head == tail) {
             doubleCapacity();
         }
+    }
+
+    private int wrappingDecrement(int operand) {
+        return (operand - 1) & (elements.length - 1);
     }
 
     private void doubleCapacity() {
@@ -50,19 +54,38 @@ public class SolvedArrayDeque<E> implements Deque<E> {
     public void addLast(E element) {
         elements[tail] = element;
         size++;
-        tail = (tail + 1) & (elements.length - 1);
+        tail = wrappingIncrement(tail);
 
         if (tail == head) {
             doubleCapacity();
         }
     }
 
+    private int wrappingIncrement(int operand) {
+        return (operand + 1) & (elements.length - 1);
+    }
+
     public E removeFirst() {
-        return null;
+        E first = (E) elements[head];
+        if (first == null) {
+            return null;
+        }
+        elements[head] = null;
+        head = wrappingIncrement(head);
+        size--;
+        return first;
     }
 
     public E removeLast() {
-        return null;
+        int lastIndex = wrappingDecrement(tail);
+        E last = (E) elements[lastIndex];
+        if (last == null) {
+            return null;
+        }
+        elements[lastIndex] = null;
+        tail = lastIndex;
+        size--;
+        return last;
     }
 
     public E peekFirst() {
@@ -70,7 +93,7 @@ public class SolvedArrayDeque<E> implements Deque<E> {
     }
 
     public E peekLast() {
-        return (E) elements[(tail - 1) & (elements.length - 1)];
+        return (E) elements[wrappingDecrement(tail)];
     }
 
     public int size() {
@@ -78,7 +101,7 @@ public class SolvedArrayDeque<E> implements Deque<E> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
 }

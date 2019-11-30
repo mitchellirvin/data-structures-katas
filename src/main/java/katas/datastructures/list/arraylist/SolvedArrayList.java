@@ -68,6 +68,6 @@ public class SolvedArrayList<T> implements List<T> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 }

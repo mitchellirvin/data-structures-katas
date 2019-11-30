@@ -40,7 +40,7 @@ public class SolvedLinkedList<T> implements List<T> {
 
     private void removeNodeAtIndex(int indexToRemove) {
         if (indexToRemove == 0) {
-            head = null;
+            head = head.next;
         } else {
             SolvedNode<T> current = getNodeAtPosition(indexToRemove - 1);
             current.next = current.next.next;
