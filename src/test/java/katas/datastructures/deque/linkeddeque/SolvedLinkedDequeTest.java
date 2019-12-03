@@ -1,15 +1,17 @@
-package katas.datastructures.deque;
+package katas.datastructures.deque.linkeddeque;
 
-import katas.datastructures.deque.arraydeque.SolvedArrayDeque;
+import katas.datastructures.deque.Deque;
 import org.junit.jupiter.api.*;
 
+import java.util.NoSuchElementException;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class SolvedArrayDequeTest {
+class SolvedLinkedDequeTest {
 
     @Test
     @Order(1)
     void addFirst() {
-        Deque<String> deque = new SolvedArrayDeque<>();
+        Deque<String> deque = new SolvedLinkedDeque<>();
 
         for (int i = 0; i < 50; i++) {
             deque.addFirst(String.valueOf(i));
@@ -22,7 +24,7 @@ class SolvedArrayDequeTest {
     @Test
     @Order(2)
     void addLast() {
-        Deque<String> deque = new SolvedArrayDeque<>();
+        Deque<String> deque = new SolvedLinkedDeque<>();
 
         for (int i = 0; i < 50; i++) {
             deque.addLast(String.valueOf(i));
@@ -35,7 +37,7 @@ class SolvedArrayDequeTest {
     @Test
     @Order(3)
     void removeFirst() {
-        Deque<String> deque = new SolvedArrayDeque<>();
+        Deque<String> deque = new SolvedLinkedDeque<>();
 
         for (int i = 0; i < 50; i++) {
             deque.addFirst(String.valueOf(i));
@@ -47,13 +49,13 @@ class SolvedArrayDequeTest {
             Assertions.assertEquals(i - 1, deque.size());
         }
 
-        Assertions.assertNull(deque.removeFirst());
+        Assertions.assertThrows(NoSuchElementException.class, deque::removeFirst);
     }
 
     @Test
     @Order(4)
     void removeLast() {
-        Deque<String> deque = new SolvedArrayDeque<>();
+        Deque<String> deque = new SolvedLinkedDeque<>();
 
         for (int i = 0; i < 50; i++) {
             deque.addLast(String.valueOf(i));
@@ -65,13 +67,13 @@ class SolvedArrayDequeTest {
             Assertions.assertEquals(i - 1, deque.size());
         }
 
-        Assertions.assertNull(deque.removeLast());
+        Assertions.assertThrows(NoSuchElementException.class, deque::removeLast);
     }
 
     @Test
     @Order(5)
     void isEmpty() {
-        Deque<String> deque = new SolvedArrayDeque<>();
+        Deque<String> deque = new SolvedLinkedDeque<>();
 
         Assertions.assertTrue(deque.isEmpty());
 
