@@ -4,7 +4,6 @@ buildscript {
     }
     configurations.maybeCreate("pitest")
     dependencies {
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.5'
         pitest 'org.pitest:pitest-junit5-plugin:0.10'
     }
 }
@@ -38,7 +37,6 @@ test {
 jacoco {
     toolVersion = '0.8.4'
 }
-
 jacocoTestReport {
     reports {
         xml.enabled false
@@ -48,27 +46,11 @@ jacocoTestReport {
 }
 test.finalizedBy jacocoTestReport
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                counter = 'INSTRUCTION'
-                value = 'COVEREDRATIO'
-                minimum = 0
-            }
-        }
-    }
-}
-
-check.dependsOn jacocoTestCoverageVerification
-
 pitest {
     pitestVersion = "1.4.9"
     testPlugin = "junit5"
     targetClasses = ['katas.datastructures.*']
     threads = 4
     outputFormats = ['HTML']
-    coverageThreshold = 90
 }
-
 check.dependsOn 'pitest'

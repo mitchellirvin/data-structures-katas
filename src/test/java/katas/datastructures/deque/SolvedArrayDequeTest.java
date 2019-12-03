@@ -4,7 +4,7 @@ import katas.datastructures.deque.arraydeque.SolvedArrayDeque;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class ArrayDequeTest {
+class SolvedArrayDequeTest {
 
     @Test
     @Order(1)
