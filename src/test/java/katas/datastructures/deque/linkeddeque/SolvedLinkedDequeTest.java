@@ -50,6 +50,7 @@ class SolvedLinkedDequeTest {
         }
 
         Assertions.assertThrows(NoSuchElementException.class, deque::removeFirst);
+        Assertions.assertThrows(NoSuchElementException.class, deque::peekFirst);
     }
 
     @Test
@@ -68,6 +69,7 @@ class SolvedLinkedDequeTest {
         }
 
         Assertions.assertThrows(NoSuchElementException.class, deque::removeLast);
+        Assertions.assertThrows(NoSuchElementException.class, deque::peekLast);
     }
 
     @Test

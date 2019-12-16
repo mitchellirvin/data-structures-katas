@@ -14,9 +14,10 @@ class SolvedLinkedListTest {
         List<Integer> list = new SolvedLinkedList<>();
         for (int i = 0; i < 100; i++) {
             Assertions.assertTrue(list.add(i));
-
-            Assertions.assertEquals(Integer.valueOf(i), list.get(i));
             Assertions.assertEquals(i + 1, list.size());
+        }
+        for (int i = 0; i < 100; i++) {
+            Assertions.assertEquals(Integer.valueOf(i), list.get(i));
         }
     }
 

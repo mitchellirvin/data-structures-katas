@@ -39,18 +39,18 @@ jacoco {
 }
 jacocoTestReport {
     reports {
-        xml.enabled false
-        csv.enabled false
-        html.enabled true
+        xml.enabled = false
+        csv.enabled = false
+        html.enabled = true
     }
 }
 test.finalizedBy jacocoTestReport
 
 pitest {
-    pitestVersion = "1.4.9"
     testPlugin = "junit5"
     targetClasses = ['katas.datastructures.*']
     threads = 4
     outputFormats = ['HTML']
+    mutationThreshold = 100
 }
 check.dependsOn 'pitest'
