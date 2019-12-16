@@ -37,6 +37,19 @@ test {
 jacoco {
     toolVersion = '0.8.4'
 }
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            includes = ['katas.datastructures.*']
+            limit {
+                counter = 'INSTRUCTION'
+                value = 'COVEREDRATIO'
+                minimum = 1
+            }
+        }
+    }
+}
+check.dependsOn jacocoTestCoverageVerification
 jacocoTestReport {
     reports {
         xml.enabled = false
