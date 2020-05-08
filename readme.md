@@ -6,4 +6,4 @@ about the advantages and disadvantages, and details about how to implement your 
 
 ## How it Works
 1. Fork this repository
-1. 
+1. Fill out the empty data structure classes, and use `./gradlew test` to see if the tests pass!
